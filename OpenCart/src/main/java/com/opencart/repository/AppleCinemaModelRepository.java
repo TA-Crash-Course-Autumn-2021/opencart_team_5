@@ -18,7 +18,7 @@ public class AppleCinemaModelRepository {
                 .date("2021-02-20")
                 .time("00:00")
                 .dateAndTime("2021-11-10 00:00")
-                .qty("1")
+                .qty("3")
                 .build();
     }
 }

@@ -2,6 +2,7 @@ import com.opencart.navigation.Navigation;
 import com.opencart.steps.AppleCinema30PageBL;
 import com.opencart.steps.CanonEOS5DPageBL;
 import com.opencart.steps.MainPageBL;
+import com.opencart.steps.ShoppingCartPageBL;
 import org.testng.annotations.Test;
 
 import static com.opencart.enums.URLs.BASE_URL;
@@ -15,6 +16,10 @@ public class AddProductToCartTest extends BaseTest{
         String product = "MacBook";
         mainPageBL.addProductToCart(product);
         mainPageBL.verifySuccessAddToCart(product);
+        // check product in shoppingCart
+        ShoppingCartPageBL shoppingCartPage = new ShoppingCartPageBL();
+        shoppingCartPage.clickOnShoppingCartButton();
+        shoppingCartPage.verifyMacBookInCard();
     }
 
     @Test
@@ -24,6 +29,10 @@ public class AddProductToCartTest extends BaseTest{
         String product = "iPhone";
         mainPageBL.addProductToCart(product);
         mainPageBL.verifySuccessAddToCart(product);
+        // check product in shoppingCart
+        ShoppingCartPageBL shoppingCartPage = new ShoppingCartPageBL();
+        shoppingCartPage.clickOnShoppingCartButton();
+        shoppingCartPage.verifyIPhoneInCart();
     }
 
     @Test
@@ -34,6 +43,11 @@ public class AddProductToCartTest extends BaseTest{
         mainPageBL.addProductToCart(product);
         AppleCinema30PageBL appleCinema30Page = new AppleCinema30PageBL();
         appleCinema30Page.chooseOptionsAppleCinema().verifySuccessAddToCartAppleCinema(product);
+        // check product in shoppingCart
+        ShoppingCartPageBL shoppingCartPage = new ShoppingCartPageBL();
+        shoppingCartPage.clickOnShoppingCartButton();
+        shoppingCartPage.verifyAppleCinemaInCart();
+
     }
 
     @Test
@@ -44,5 +58,9 @@ public class AddProductToCartTest extends BaseTest{
         mainPageBL.addProductToCart(product);
         CanonEOS5DPageBL canonEOS5DPage = new CanonEOS5DPageBL();
         canonEOS5DPage.chooseOptionsCanonEOS5D().verifySuccessAddToCartAppleCinema(product);
+        // check product in shoppingCart
+        ShoppingCartPageBL shoppingCartPage = new ShoppingCartPageBL();
+        shoppingCartPage.clickOnShoppingCartButton();
+        shoppingCartPage.verifyCanonEos5DInCart();
     }
 }
