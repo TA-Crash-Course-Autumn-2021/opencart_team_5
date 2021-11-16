@@ -95,6 +95,11 @@ public class AppleCinema30Page extends BasePage{
     }
 
     public WebElement getAlert() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         wait.until(ExpectedConditions.visibilityOf(alert));
         return alert;
     }

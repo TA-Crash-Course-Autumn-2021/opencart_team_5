@@ -14,7 +14,7 @@ public class AppleCinemaModelRepository {
                 .text(RandomStringUtils.randomAlphabetic(10))
                 .select(1) // 1/2/3/4
                 .textarea(RandomStringUtils.randomAlphabetic(20))
-                .file("/src/test/additionalFiles/File.txt")
+                .file("src/test/additionalFiles/File.txt")
                 .date("2021-02-20")
                 .time("00:00")
                 .dateAndTime("2021-11-10 00:00")
