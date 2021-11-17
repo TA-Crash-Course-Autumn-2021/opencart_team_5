@@ -111,9 +111,14 @@ public class AppleCinema30PageBL {
         appleCinema30Page.getAddToCartButton().click();
     }
 
-    public void verifySuccessAddToCartAppleCinema(String productName) {
+    public void clickOnOpenCartImageButton() {
+        appleCinema30Page.getOpencartImageButton().click();
+    }
+
+    public AppleCinema30PageBL verifySuccessAddToCartAppleCinema(String productName) {
         Assert.assertTrue(appleCinema30Page.getAlert().getAttribute("class").contains("success"), "Product wasn't added to cart");
         Assert.assertTrue(appleCinema30Page.getAlert().getText().contains(productName), "Other item was added to cart");
+        return this;
     }
 }
 

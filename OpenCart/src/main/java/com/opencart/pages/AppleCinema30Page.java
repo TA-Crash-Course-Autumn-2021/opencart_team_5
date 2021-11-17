@@ -37,6 +37,9 @@ public class AppleCinema30Page extends BasePage{
     @FindBy(xpath = "//div[contains(@class,'alert-')]")
     private WebElement alert;
 
+    @FindBy(xpath = "//*[@title = 'Your Store']")
+    private WebElement opencartImage;
+
     public WebElement getInputTextFieldButton() {
         wait.until(ExpectedConditions.visibilityOf(inputTextFieldButton));
         return inputTextFieldButton;
@@ -102,5 +105,10 @@ public class AppleCinema30Page extends BasePage{
         }
         wait.until(ExpectedConditions.visibilityOf(alert));
         return alert;
+    }
+
+    public WebElement getOpencartImageButton() {
+        wait.until(ExpectedConditions.visibilityOf(opencartImage));
+        return opencartImage;
     }
 }
