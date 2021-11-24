@@ -1,31 +1,34 @@
 import com.opencart.navigation.Navigation;
-import com.opencart.steps.CanonEOS5DPageBL;
 import com.opencart.steps.MainPageBL;
 import com.opencart.steps.ShoppingCartPageBL;
 import org.testng.annotations.Test;
 
 import static com.opencart.enums.URLs.BASE_URL;
 
-public class AddTwoProductsToCartTest extends BaseTest{
-
+public class AddTwoProductsToCartBySearchTest extends BaseTest{
     @Test
-    public void addMacBookAndCanonEOSToCart() {
+    public void addMacBookAndIphoneToCartBySearch() {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         MainPageBL mainPageBL = new MainPageBL();
-        //add MacBook
         String product1 = "MacBook";
-        mainPageBL.addProductToCart(product1);
+        mainPageBL.getHeaderPageBL()
+                .clickOnSearchField()
+                .sendNameToSearchField(product1)
+                .clickOnSearchButton()
+                .addProductToCart(product1);
         mainPageBL.verifySuccessAddToCart(product1);
-        // add Canon
-        String product = "Canon EOS 5D";
-        mainPageBL.addProductToCart(product);
-        CanonEOS5DPageBL canonEOS5DPage = new CanonEOS5DPageBL();
-        canonEOS5DPage.chooseOptionsCanonEOS5D().verifySuccessAddToCartAppleCinema(product);
+        String product2 = "iPhone";
+        mainPageBL.getHeaderPageBL()
+                .clickOnSearchField()
+                .sendNameToSearchField(product2)
+                .clickOnSearchButton()
+                .addProductToCart(product2);
+        mainPageBL.verifySuccessAddToCart(product2);
         // check product in shoppingCart
         ShoppingCartPageBL shoppingCartPage = mainPageBL.getHeaderPageBL()
                 .clickOnShoppingCartButton();
         shoppingCartPage.clickOnShoppingCartButton();
         shoppingCartPage.verifyMacBookInCard();
-        shoppingCartPage.verifyCanonEos5DInCart();
+        shoppingCartPage.verifyIPhoneInCart();
     }
 }
