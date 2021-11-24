@@ -20,7 +20,6 @@ public class MainPageBL {
         ProductContainer product = mainPage.getProducts().stream()
                 .filter(e -> e.getTitle().equals(productName))
                 .findFirst().orElseThrow(NullPointerException::new);
-
         product.getAddToCartButton().click();
         return this;
     }
