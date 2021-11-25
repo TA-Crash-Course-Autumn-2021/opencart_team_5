@@ -24,8 +24,19 @@ public class MainPageBL {
         return this;
     }
 
+    public boolean searchProductOnPage(String productName) {
+        ProductContainer product = mainPage.getProducts().stream()
+                .filter(e -> e.getTitle().equals(productName))
+                .findFirst().orElseThrow(NullPointerException::new);
+        return true;
+    }
+
     public void verifySuccessAddToCart(String productName) {
         Assert.assertTrue(mainPage.getAlert().getAttribute("class").contains("success"));
         Assert.assertTrue(mainPage.getAlert().getText().contains(productName), "Other item was added to cart");
+    }
+
+    public void verifySuccessSearching(String productName) {
+        Assert.assertTrue(searchProductOnPage(productName));
     }
 }
