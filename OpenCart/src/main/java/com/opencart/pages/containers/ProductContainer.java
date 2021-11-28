@@ -22,4 +22,8 @@ public class ProductContainer {
     public WebElement getAddToCartButton() {
         return rootElement.findElement(By.xpath(".//*[contains(@class,'shopping-cart')]/.."));
     }
+
+    public WebElement getAddToWishListButton() {
+        return rootElement.findElement(By.xpath(".//*[contains(@class,'heart')]/.."));
+    }
 }

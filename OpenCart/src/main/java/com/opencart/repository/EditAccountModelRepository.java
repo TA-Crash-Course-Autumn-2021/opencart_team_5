@@ -17,6 +17,4 @@ public class EditAccountModelRepository {
                 .telephone(RandomStringUtils.randomNumeric(10))
                 .build();
     }
-
-
 }
