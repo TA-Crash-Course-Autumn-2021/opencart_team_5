@@ -22,6 +22,11 @@ public class HeaderPageBL {
         return new RegisterPageBL();
     }
 
+    public LoginPageBL clickOnLoginButton() {
+        headerPage.getLoginButton().click();
+        return new LoginPageBL();
+    }
+
     public HeaderPageBL clickOnSearchField() {
         headerPage.getSearchField().click();
         headerPage.getSearchField().clear();
@@ -46,5 +51,10 @@ public class HeaderPageBL {
     public ShoppingCartPageBL clickOnShoppingCartButton() {
         headerPage.getShoppingCartButton().click();
         return new ShoppingCartPageBL();
+    }
+
+    public WishListPageBL clickOnWishListButton() {
+        headerPage.getWishListButton().click();
+        return new WishListPageBL();
     }
 }

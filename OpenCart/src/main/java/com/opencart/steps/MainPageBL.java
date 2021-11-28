@@ -24,6 +24,14 @@ public class MainPageBL {
         return this;
     }
 
+    public MainPageBL addProductToWishList(String productName) {
+        ProductContainer product = mainPage.getProducts().stream()
+                .filter(e -> e.getTitle().equals(productName))
+                .findFirst().orElseThrow(NullPointerException::new);
+        product.getAddToWishListButton().click();
+        return this;
+    }
+
     public boolean searchProductOnPage(String productName) {
         ProductContainer product = mainPage.getProducts().stream()
                 .filter(e -> e.getTitle().equals(productName))
@@ -34,6 +42,11 @@ public class MainPageBL {
     public void verifySuccessAddToCart(String productName) {
         Assert.assertTrue(mainPage.getAlert().getAttribute("class").contains("success"));
         Assert.assertTrue(mainPage.getAlert().getText().contains(productName), "Other item was added to cart");
+    }
+
+    public void verifySuccessAddToWishListAlert(String productName) {
+        Assert.assertTrue(mainPage.getAlert().getAttribute("class").contains("success"));
+        Assert.assertTrue(mainPage.getAlert().getText().contains(productName), "Other item was added to wish list");
     }
 
     public void verifySuccessSearching(String productName) {

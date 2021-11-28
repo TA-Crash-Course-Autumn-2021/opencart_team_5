@@ -22,6 +22,12 @@ public class HeaderPage extends BasePage {
     @FindBy(xpath = "//div[@id = 'top-links']//a[@title='Shopping Cart']")
     private WebElement shoppingCartButton;
 
+    @FindBy(xpath = ".//a[text() = 'Login']")
+    private WebElement loginButton;
+
+    @FindBy(xpath = "//div[@id = 'top-links']//i[contains(@class,'heart')]")
+    private WebElement wishListButton;
+
     public WebElement getMyAccountButton() {
         wait.until(ExpectedConditions.visibilityOf(myAccountButton));
         return myAccountButton;
@@ -29,6 +35,10 @@ public class HeaderPage extends BasePage {
 
     public WebElement getRegisterButton() {
         return registerButton;
+    }
+
+    public WebElement getLoginButton() {
+        return loginButton;
     }
 
     public WebElement getSearchField() {
@@ -42,5 +52,10 @@ public class HeaderPage extends BasePage {
     public WebElement getShoppingCartButton() {
         wait.until(ExpectedConditions.visibilityOf(shoppingCartButton));
         return shoppingCartButton;
+    }
+
+    public WebElement getWishListButton() {
+        wait.until(ExpectedConditions.visibilityOf(wishListButton));
+        return wishListButton;
     }
 }
