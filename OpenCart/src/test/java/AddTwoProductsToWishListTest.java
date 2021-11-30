@@ -9,7 +9,7 @@ import static com.opencart.enums.URLs.BASE_URL;
 public class AddTwoProductsToWishListTest extends BaseTest {
 
     @Test
-    public void loginAndAddMacBookAndIphoneToWishList() throws InterruptedException {
+    public void loginAndAddMacBookAndIphoneToWishList() {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         MainPageBL mainPageBL = new MainPageBL();
         LoginPageBL loginPageBL = mainPageBL.getHeaderPageBL()
@@ -22,7 +22,6 @@ public class AddTwoProductsToWishListTest extends BaseTest {
         mainPageBL.verifySuccessAddToWishListAlert(product1);
         String product2 = "iPhone";
         mainPageBL.addProductToWishList(product2);
-        Thread.sleep(2000);
         mainPageBL.verifySuccessAddToWishListAlert(product2);
         WishListPageBL wishListPageBL = mainPageBL.getHeaderPageBL()
                 .clickOnWishListButton();
