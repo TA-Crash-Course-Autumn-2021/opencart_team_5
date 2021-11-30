@@ -1,19 +1,25 @@
 import com.opencart.navigation.Navigation;
 import com.opencart.steps.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static com.opencart.enums.URLs.BASE_URL;
 
 public class ChangePersonalInfoTest extends BaseTest{
 
-    @Test
-    public void changeFirstName() {
+    @BeforeMethod
+    public void registerNewPerson() {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         MainPageBL mainPageBL = new MainPageBL();
         RegisterPageBL registerPageBL = mainPageBL.getHeaderPageBL()
                 .clickOnMyAccountButton()
                 .clickOnRegisterButton()
                 .registerNewPerson();
+    }
+
+    @Test
+    public void changeFirstName() {
         EditAccountInfoPageBL editAccountInfoPageBL = new EditAccountInfoPageBL();
         editAccountInfoPageBL.clickOnEditAccountButton();
         MyAccountInfoPageBL myAccountInfoPageBL = new MyAccountInfoPageBL();
@@ -25,12 +31,6 @@ public class ChangePersonalInfoTest extends BaseTest{
 
     @Test
     public void changeLastName() {
-        new Navigation().navigateToUrl(BASE_URL.getValue());
-        MainPageBL mainPageBL = new MainPageBL();
-        RegisterPageBL registerPageBL = mainPageBL.getHeaderPageBL()
-                .clickOnMyAccountButton()
-                .clickOnRegisterButton()
-                .registerNewPerson();
         EditAccountInfoPageBL editAccountInfoPageBL = new EditAccountInfoPageBL();
         editAccountInfoPageBL.clickOnEditAccountButton();
         MyAccountInfoPageBL myAccountInfoPageBL = new MyAccountInfoPageBL();
@@ -42,12 +42,6 @@ public class ChangePersonalInfoTest extends BaseTest{
 
     @Test
     public void changeEmail() {
-        new Navigation().navigateToUrl(BASE_URL.getValue());
-        MainPageBL mainPageBL = new MainPageBL();
-        RegisterPageBL registerPageBL = mainPageBL.getHeaderPageBL()
-                .clickOnMyAccountButton()
-                .clickOnRegisterButton()
-                .registerNewPerson();
         EditAccountInfoPageBL editAccountInfoPageBL = new EditAccountInfoPageBL();
         editAccountInfoPageBL.clickOnEditAccountButton();
         MyAccountInfoPageBL myAccountInfoPageBL = new MyAccountInfoPageBL();
@@ -59,12 +53,6 @@ public class ChangePersonalInfoTest extends BaseTest{
 
     @Test
     public void changeTelephone() {
-        new Navigation().navigateToUrl(BASE_URL.getValue());
-        MainPageBL mainPageBL = new MainPageBL();
-        RegisterPageBL registerPageBL = mainPageBL.getHeaderPageBL()
-                .clickOnMyAccountButton()
-                .clickOnRegisterButton()
-                .registerNewPerson();
         EditAccountInfoPageBL editAccountInfoPageBL = new EditAccountInfoPageBL();
         editAccountInfoPageBL.clickOnEditAccountButton();
         MyAccountInfoPageBL myAccountInfoPageBL = new MyAccountInfoPageBL();
@@ -76,12 +64,6 @@ public class ChangePersonalInfoTest extends BaseTest{
 
     @Test
     public void changeAllAccountInfo() {
-        new Navigation().navigateToUrl(BASE_URL.getValue());
-        MainPageBL mainPageBL = new MainPageBL();
-        RegisterPageBL registerPageBL = mainPageBL.getHeaderPageBL()
-                .clickOnMyAccountButton()
-                .clickOnRegisterButton()
-                .registerNewPerson();
         EditAccountInfoPageBL editAccountInfoPageBL = new EditAccountInfoPageBL();
         editAccountInfoPageBL.clickOnEditAccountButton();
         MyAccountInfoPageBL myAccountInfoPageBL = new MyAccountInfoPageBL();

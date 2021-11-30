@@ -10,5 +10,4 @@ public class EditAccountModel {
     private String lastName;
     private String email;
     private String telephone;
-
 }

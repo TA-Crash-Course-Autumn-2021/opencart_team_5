@@ -99,7 +99,7 @@ public class AppleCinema30Page extends BasePage{
 
     public WebElement getAlert() {
         try {
-            Thread.sleep(50);
+            Thread.sleep(200);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

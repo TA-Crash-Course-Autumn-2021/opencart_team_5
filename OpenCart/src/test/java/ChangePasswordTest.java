@@ -3,20 +3,25 @@ import com.opencart.pages.ChangePasswordPage;
 import com.opencart.pages.EditAccountInfoPage;
 import com.opencart.steps.*;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static com.opencart.enums.URLs.BASE_URL;
 
 public class ChangePasswordTest extends BaseTest{
 
-    @Test
-    public void registerUserAndChangePasswordPositive() {
+    @BeforeMethod
+    public void registerNewPerson() {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         MainPageBL mainPageBL = new MainPageBL();
         RegisterPageBL registerPageBL = mainPageBL.getHeaderPageBL()
                 .clickOnMyAccountButton()
                 .clickOnRegisterButton()
                 .registerNewPerson();
+    }
+
+    @Test
+    public void registerUserAndChangePasswordPositive() {
         EditAccountInfoPageBL editAccountInfoPageBL = new EditAccountInfoPageBL();
         editAccountInfoPageBL.clickOnPasswordButton();
         ChangePasswordPageBL changePasswordPageBL = new ChangePasswordPageBL();
@@ -30,12 +35,6 @@ public class ChangePasswordTest extends BaseTest{
 
     @Test
     public void registerUserAndChangePasswordNegative() {
-        new Navigation().navigateToUrl(BASE_URL.getValue());
-        MainPageBL mainPageBL = new MainPageBL();
-        RegisterPageBL registerPageBL = mainPageBL.getHeaderPageBL()
-                .clickOnMyAccountButton()
-                .clickOnRegisterButton()
-                .registerNewPerson();
         EditAccountInfoPageBL editAccountInfoPageBL = new EditAccountInfoPageBL();
         editAccountInfoPageBL.clickOnPasswordButton();
         ChangePasswordPageBL changePasswordPageBL = new ChangePasswordPageBL();
