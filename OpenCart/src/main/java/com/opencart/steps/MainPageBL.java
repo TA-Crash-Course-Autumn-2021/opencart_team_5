@@ -1,6 +1,7 @@
 package com.opencart.steps;
 
 import com.opencart.pages.MainPage;
+import com.opencart.pages.ProductComparisonPage;
 import com.opencart.pages.containers.ProductContainer;
 import org.testng.Assert;
 
@@ -32,11 +33,27 @@ public class MainPageBL {
         return this;
     }
 
+    public MainPageBL clickOnCompareToButton() {
+        ProductContainer product = mainPage.getProducts().stream()
+                .findFirst().orElseThrow(NullPointerException::new);
+        product.getCompareThisProductButton().click();
+        return this;
+    }
+
     public boolean searchProductOnPage(String productName) {
         ProductContainer product = mainPage.getProducts().stream()
                 .filter(e -> e.getTitle().equals(productName))
                 .findFirst().orElseThrow(NullPointerException::new);
         return true;
+    }
+
+    public String verifySuccessProductComparison() {
+       return mainPage.getAlert().getText();
+    }
+
+    public ProductComparisonPageBL clickOnComparisonAlertLink(){
+        mainPage.getComparisonAlert().click();
+        return new ProductComparisonPageBL();
     }
 
     public void verifySuccessAddToCart(String productName) {

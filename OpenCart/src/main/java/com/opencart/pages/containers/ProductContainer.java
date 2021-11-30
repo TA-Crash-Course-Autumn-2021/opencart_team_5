@@ -26,4 +26,9 @@ public class ProductContainer {
     public WebElement getAddToWishListButton() {
         return rootElement.findElement(By.xpath(".//*[contains(@class,'heart')]/.."));
     }
+
+    public WebElement getCompareThisProductButton() {
+        return rootElement.findElement(By.xpath(".//*[contains(@class,'exchange')]/.."));
+    }
+
 }
