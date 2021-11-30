@@ -14,7 +14,22 @@ public class ProductComparisonPageBL {
         return new HeaderPageBL();
     }
 
+    //mine
     public String verifyIfMacIsInProductComparison() {
         return productComparisonPage.getMacbookProductComparison().getText();
+    }
+
+    //mine
+    public String verifyIfIphoneIsInProductComparison() {
+        return productComparisonPage.getIphoneProductComparison().getText();
+    }
+
+    //mine
+    public String verifyIfCinemaIsInProductComparison() {
+        return productComparisonPage.getCinemaProductComparison().getText();
+    }
+
+    public String verifyIfCanonIsInProductComparison() {
+        return productComparisonPage.getCanonProductComparison().getText();
     }
 }

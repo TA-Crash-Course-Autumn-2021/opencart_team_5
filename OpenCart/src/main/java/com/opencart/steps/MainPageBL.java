@@ -1,9 +1,11 @@
 package com.opencart.steps;
 
 import com.opencart.pages.MainPage;
-import com.opencart.pages.ProductComparisonPage;
 import com.opencart.pages.containers.ProductContainer;
 import org.testng.Assert;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class MainPageBL {
 
@@ -33,10 +35,17 @@ public class MainPageBL {
         return this;
     }
 
-    public MainPageBL clickOnCompareToButton() {
+    //mine
+    public MainPageBL clickOnCompareToButton(String productName) {
         ProductContainer product = mainPage.getProducts().stream()
+                .filter(e -> e.getTitle().equals(productName))
                 .findFirst().orElseThrow(NullPointerException::new);
         product.getCompareThisProductButton().click();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return this;
     }
 
@@ -47,13 +56,29 @@ public class MainPageBL {
         return true;
     }
 
+    //mine
     public String verifySuccessProductComparison() {
        return mainPage.getAlert().getText();
     }
 
+    //mine
     public ProductComparisonPageBL clickOnComparisonAlertLink(){
         mainPage.getComparisonAlert().click();
         return new ProductComparisonPageBL();
+    }
+
+    //mine
+    public void scrollDown() {
+        try {
+            Robot robot = new Robot();
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_END);
+            robot.keyRelease(KeyEvent.VK_END);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+        }
+        catch (AWTException e) {
+            e.printStackTrace();
+        }
     }
 
     public void verifySuccessAddToCart(String productName) {

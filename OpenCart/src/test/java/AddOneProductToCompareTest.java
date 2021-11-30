@@ -11,7 +11,7 @@ public class AddOneProductToCompareTest extends BaseTest{
     public void checkAddOneProductToCompare() throws InterruptedException {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         String successMessageAppears = new MainPageBL()
-                  .clickOnCompareToButton()
+                  .clickOnCompareToButton("MacBook")
                   .verifySuccessProductComparison();
         Assert.assertTrue(successMessageAppears.contains("Success: You have added MacBook to your product comparison!"));
 
