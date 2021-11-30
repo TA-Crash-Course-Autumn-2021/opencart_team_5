@@ -47,10 +47,10 @@ public class AddFourProductsToCartBySearchTest extends BaseTest{
         ShoppingCartPageBL shoppingCartPage = mainPageBL.getHeaderPageBL()
                 .clickOnShoppingCartButton();
         shoppingCartPage.clickOnShoppingCartButton();
-        shoppingCartPage.verifyMacBookInCard();
-        shoppingCartPage.verifyIPhoneInCart();
-        shoppingCartPage.verifyAppleCinemaInCart();
-        shoppingCartPage.verifyCanonEos5DInCart();
+        shoppingCartPage.verifyProductInCart(product1);
+        shoppingCartPage.verifyProductInCart(product2);
+        shoppingCartPage.verifyProductInCart(product3);
+        shoppingCartPage.verifyProductInCart(product4);
     }
 
 }

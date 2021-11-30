@@ -11,20 +11,8 @@ public class ShoppingCartPageBL {
         shoppingCartPage = new ShoppingCartPage();
     }
 
-    public void verifyMacBookInCard() {
-        Assert.assertTrue(shoppingCartPage.getMacBookInCart().getText().equals("MacBook"), "The product isn't in cart");
-    }
-
-    public void verifyAppleCinemaInCart() {
-        Assert.assertTrue(shoppingCartPage.getAppleCinemaInCart().getText().contains("Apple Cinema"), "The product isn't in cart");
-    }
-
-    public void verifyCanonEos5DInCart() {
-        Assert.assertTrue(shoppingCartPage.getCanonEos5DInCart().getText().equals("Canon EOS 5D"), "The product isn't in cart");
-    }
-
-    public void verifyIPhoneInCart() {
-        Assert.assertTrue(shoppingCartPage.getIPhoneInCart().getText().equals("iPhone"), "The product isn't in cart");
+    public void verifyProductInCart(String product) {
+        Assert.assertTrue(shoppingCartPage.getProductInCart(product).getText().contains(product), "Product wasn't added to wish list");
     }
 
     public ShoppingCartPageBL clickOnShoppingCartButton() {

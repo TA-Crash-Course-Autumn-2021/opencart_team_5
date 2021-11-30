@@ -13,7 +13,6 @@ public class WishListPageBL {
 
     public void verifySuccessAddToWishList(String product) {
         Assert.assertTrue(wishListPage.getTitleOfProduct(product).getText().contains(product), "Product wasn't added to wish list");
-        //Assert.assertEquals(wishListPage.getTitleOfProduct(product).getText(), product, "Product wasn't added to wish list");
     }
 
 }

@@ -19,7 +19,7 @@ public class AddProductToCartBySearchTest extends BaseTest{
         // check product in shoppingCart
         ShoppingCartPageBL shoppingCartPage = new ShoppingCartPageBL();
         shoppingCartPage.clickOnShoppingCartButton();
-        shoppingCartPage.verifyIPhoneInCart();
+        shoppingCartPage.verifyProductInCart(product);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class AddProductToCartBySearchTest extends BaseTest{
         // check product in shoppingCart
         ShoppingCartPageBL shoppingCartPage = new ShoppingCartPageBL();
         shoppingCartPage.clickOnShoppingCartButton();
-        shoppingCartPage.verifyMacBookInCard();
+        shoppingCartPage.verifyProductInCart(product);
     }
 
     @Test
@@ -55,7 +55,7 @@ public class AddProductToCartBySearchTest extends BaseTest{
                 .clickOnShoppingCartButton();
         // check product in shoppingCart
         shoppingCartPage.clickOnShoppingCartButton();
-        shoppingCartPage.verifyAppleCinemaInCart();
+        shoppingCartPage.verifyProductInCart(product);
     }
 
     @Test
@@ -74,6 +74,6 @@ public class AddProductToCartBySearchTest extends BaseTest{
                 .clickOnShoppingCartButton();
         // check product in shoppingCart
         shoppingCartPage.clickOnShoppingCartButton();
-        shoppingCartPage.verifyCanonEos5DInCart();
+        shoppingCartPage.verifyProductInCart(product);
     }
 }

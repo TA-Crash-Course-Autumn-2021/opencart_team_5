@@ -37,9 +37,9 @@ public class AddFourProductsToCartTest extends BaseTest{
         // check product in shoppingCart
         ShoppingCartPageBL shoppingCartPage = new ShoppingCartPageBL();
         shoppingCartPage.clickOnShoppingCartButton();
-        shoppingCartPage.verifyMacBookInCard();
-        shoppingCartPage.verifyCanonEos5DInCart();
-        shoppingCartPage.verifyIPhoneInCart();
-        shoppingCartPage.verifyAppleCinemaInCart();
+        shoppingCartPage.verifyProductInCart(product1);
+        shoppingCartPage.verifyProductInCart(product3);
+        shoppingCartPage.verifyProductInCart(product);
+        shoppingCartPage.verifyProductInCart(product2);
     }
 }

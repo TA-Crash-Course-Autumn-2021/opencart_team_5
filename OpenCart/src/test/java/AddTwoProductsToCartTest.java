@@ -25,7 +25,7 @@ public class AddTwoProductsToCartTest extends BaseTest{
         ShoppingCartPageBL shoppingCartPage = mainPageBL.getHeaderPageBL()
                 .clickOnShoppingCartButton();
         shoppingCartPage.clickOnShoppingCartButton();
-        shoppingCartPage.verifyMacBookInCard();
-        shoppingCartPage.verifyCanonEos5DInCart();
+        shoppingCartPage.verifyProductInCart(product1);
+        shoppingCartPage.verifyProductInCart(product);
     }
 }

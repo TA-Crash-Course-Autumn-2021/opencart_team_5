@@ -28,4 +28,14 @@ public class MainPage extends BasePage{
         wait.until(ExpectedConditions.visibilityOf(alert));
         return alert;
     }
+
+    public WebElement getAlertWishList() {
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        wait.until(ExpectedConditions.visibilityOf(alert));
+        return alert;
+    }
 }

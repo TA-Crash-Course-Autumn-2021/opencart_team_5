@@ -28,7 +28,7 @@ public class AddTwoProductsToCartBySearchTest extends BaseTest{
         ShoppingCartPageBL shoppingCartPage = mainPageBL.getHeaderPageBL()
                 .clickOnShoppingCartButton();
         shoppingCartPage.clickOnShoppingCartButton();
-        shoppingCartPage.verifyMacBookInCard();
-        shoppingCartPage.verifyIPhoneInCart();
+        shoppingCartPage.verifyProductInCart(product1);
+        shoppingCartPage.verifyProductInCart(product2);
     }
 }

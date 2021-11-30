@@ -45,8 +45,8 @@ public class MainPageBL {
     }
 
     public void verifySuccessAddToWishListAlert(String productName) {
-        Assert.assertTrue(mainPage.getAlert().getAttribute("class").contains("success"));
-        Assert.assertTrue(mainPage.getAlert().getText().contains(productName), "Other item was added to wish list");
+        Assert.assertTrue(mainPage.getAlertWishList().getAttribute("class").contains("success"));
+        Assert.assertTrue(mainPage.getAlertWishList().getText().contains(productName), "Other item was added to wish list");
     }
 
     public void verifySuccessSearching(String productName) {
